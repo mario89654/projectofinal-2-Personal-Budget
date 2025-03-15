@@ -1,191 +1,144 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Gestor de Presupuesto Personal</title>
-    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
-  </head>
-  <body class="bg-gray-100 min-h-screen font-sans">
-    <div class="container mx-auto px-4 py-8">
-      <!-- Cabecera -->
-      <header class="mb-8">
-        <h1 class="text-3xl font-bold text-center text-gray-800">
-          Gestor de Presupuesto Personal
-        </h1>
-        <div class="mt-4 p-4 bg-white rounded-lg shadow-md">
-          <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-center">
-            <div class="p-3 rounded-lg bg-blue-50">
-              <h2 class="text-lg font-semibold text-gray-700">Balance</h2>
-              <p id="balance" class="text-2xl font-bold text-blue-600">$0.00</p>
-            </div>
-            <div class="p-3 rounded-lg bg-green-50">
-              <h2 class="text-lg font-semibold text-gray-700">Ingresos</h2>
-              <p id="income" class="text-2xl font-bold text-green-600">$0.00</p>
-            </div>
-            <div class="p-3 rounded-lg bg-red-50">
-              <h2 class="text-lg font-semibold text-gray-700">Gastos</h2>
-              <p id="expense" class="text-2xl font-bold text-red-600">$0.00</p>
-            </div>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gestor de Presupuesto Personal</title>
+  <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+</head>
+
+<body class="bg-gray-100 min-h-screen font-sans">
+  <div class="container mx-auto px-4 py-8">
+    <!-- Cabecera -->
+    <header class="mb-8">
+      <h1 class="text-3xl font-bold text-center text-gray-800">
+        Gestor de Presupuesto Personal
+      </h1>
+      <div class="mt-4 p-4 bg-white rounded-lg shadow-md">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-center">
+          <div class="p-3 rounded-lg bg-blue-50">
+            <h2 class="text-lg font-semibold text-gray-700">Balance</h2>
+            <p id="balance" class="text-2xl font-bold text-blue-600">$0.00</p>
+          </div>
+          <div class="p-3 rounded-lg bg-green-50">
+            <h2 class="text-lg font-semibold text-gray-700">Ingresos</h2>
+            <p id="income" class="text-2xl font-bold text-green-600">$0.00</p>
+          </div>
+          <div class="p-3 rounded-lg bg-red-50">
+            <h2 class="text-lg font-semibold text-gray-700">Gastos</h2>
+            <p id="expense" class="text-2xl font-bold text-red-600">$0.00</p>
           </div>
         </div>
-      </header>
+      </div>
+    </header>
 
-      <!-- Formulario para añadir transacciones -->
-      <section class="mb-8">
-<div class="mb-6 p-4 bg-gray-50 rounded-lg border border-gray-200">
-  <h3 class="text-lg font-medium text-gray-900 mb-3">Personalizar formato de moneda</h3>
-  <div class="flex gap-4">
-    <div class="w-1/2">
-      <label for="currency-selector" class="block mb-2 text-sm font-medium text-gray-700">Símbolo de moneda</label>
-      <select id="currency-selector" class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
-        <option value="$">$ (Dólar)</option>
-        <option value="€">€ (Euro)</option>
-        <option value="£">£ (Libra)</option>
-        <option value="¥">¥ (Yen)</option>
-        <option value="S/">S/ (Sol)</option>
-        <option value="₹">₹ (Rupia)</option>
-        <option value="₽">₽ (Rublo)</option>
-        <option value="₩">₩ (Won)</option>
-        <option value="R$">R$ (Real)</option>
-      </select>
-    </div>
-    <div class="w-1/2">
-      <label for="currency-position" class="block mb-2 text-sm font-medium text-gray-700">Posición del símbolo</label>
-      <select id="currency-position" class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
-        <option value="before">Antes del número ($100)</option>
-        <option value="after">Después del número (100$)</option>
-      </select>
-    </div>
+    <!-- Formulario para añadir transacciones -->
+    <section class="mb-8">
+      <div class="mb-6 p-4 bg-gray-50 rounded-lg border border-gray-200">
+        <h3 class="text-lg font-medium text-gray-900 mb-3">Personalizar formato de moneda</h3>
+        <div class="flex gap-4">
+          <div class="w-1/2">
+            <label for="currency-selector" class="block mb-2 text-sm font-medium text-gray-700">Símbolo de
+              moneda</label>
+            <select id="currency-selector"
+              class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+              <option value="$">$ (Dólar)</option>
+              <option value="€">€ (Euro)</option>
+              <option value="£">£ (Libra)</option>
+              <option value="¥">¥ (Yen)</option>
+              <option value="S/">S/ (Sol)</option>
+              <option value="₹">₹ (Rupia)</option>
+              <option value="₽">₽ (Rublo)</option>
+              <option value="₩">₩ (Won)</option>
+              <option value="R$">R$ (Real)</option>
+            </select>
+          </div>
+          <div class="w-1/2">
+            <label for="currency-position" class="block mb-2 text-sm font-medium text-gray-700">Posición del
+              símbolo</label>
+            <select id="currency-position"
+              class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+              <option value="before">Antes del número ($100)</option>
+              <option value="after">Después del número (100$)</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div class="bg-white p-6 rounded-lg shadow-md">
+        <h2 class="text-xl font-semibold mb-4 text-gray-800">
+          Añadir nueva transacción
+        </h2>
+        <form id="transaction-form" class="space-y-4">
+          <div>
+            <label for="description" class="block text-sm font-medium text-gray-700 mb-1">Descripción</label>
+            <input type="text" id="description" name="description" placeholder="Descripción de la transacción" required
+              class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" />
+          </div>
+          <div>
+            <label for="amount" class="block text-sm font-medium text-gray-700 mb-1">Monto ($)</label>
+            <input type="number" id="amount" name="amount"
+              placeholder="Monto (positivo para ingresos, negativo para gastos)" required
+              class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" />
+          </div>
+          <div class="flex space-x-4">
+            <div class="flex items-center">
+              <input type="radio" id="type-income" name="type" value="income" checked
+                class="h-4 w-4 text-blue-600 focus:ring-blue-500" />
+              <label for="type-income" class="ml-2 block text-sm text-gray-700">Ingreso</label>
+            </div>
+            <div class="flex items-center">
+              <input type="radio" id="type-expense" name="type" value="expense"
+                class="h-4 w-4 text-red-600 focus:ring-red-500" />
+              <label for="type-expense" class="ml-2 block text-sm text-gray-700">Gasto</label>
+            </div>
+          </div>
+          <button type="submit"
+            class="w-full bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition duration-300">
+            Añadir Transacción
+          </button>
+        </form>
+      </div>
+    </section>
+
+    <!-- Lista de transacciones -->
+    <section>
+      <div class="bg-white p-6 rounded-lg shadow-md">
+        <h2 class="text-xl font-semibold mb-4 text-gray-800">
+          Historial de transacciones
+        </h2>
+        <div class="overflow-x-auto">
+          <table class="min-w-full">
+            <thead>
+              <tr class="bg-gray-50 border-b">
+                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  Descripción
+                </th>
+                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  Monto
+                </th>
+                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  Fecha
+                </th>
+                <th class="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  Acciones
+                </th>
+              </tr>
+            </thead>
+            <tbody id="transaction-list" class="divide-y divide-gray-200">
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pie de página -->
+    <footer class="mt-8 text-center text-gray-500 text-sm">
+      <p>Gestor de Presupuesto Personal © 2025</p>
+    </footer>
   </div>
-</div>
-        <div class="bg-white p-6 rounded-lg shadow-md">
-          <h2 class="text-xl font-semibold mb-4 text-gray-800">
-            Añadir nueva transacción
-          </h2>
-          <form id="transaction-form" class="space-y-4">
-            <div>
-              <label
-                for="description"
-                class="block text-sm font-medium text-gray-700 mb-1"
-                >Descripción</label
-              >
-              <input
-                type="text"
-                id="description"
-                name="description"
-                placeholder="Descripción de la transacción"
-                required
-                class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-              />
-            </div>
-            <div>
-              <label
-                for="amount"
-                class="block text-sm font-medium text-gray-700 mb-1"
-                >Monto ($)</label
-              >
-              <input
-                type="number"
-                id="amount"
-                name="amount"
-                placeholder="Monto (positivo para ingresos, negativo para gastos)"
-                required
-                class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-              />
-            </div>
-            <div class="flex space-x-4">
-              <div class="flex items-center">
-                <input
-                  type="radio"
-                  id="type-income"
-                  name="type"
-                  value="income"
-                  checked
-                  class="h-4 w-4 text-blue-600 focus:ring-blue-500"
-                />
-                <label
-                  for="type-income"
-                  class="ml-2 block text-sm text-gray-700"
-                  >Ingreso</label
-                >
-              </div>
-              <div class="flex items-center">
-                <input
-                  type="radio"
-                  id="type-expense"
-                  name="type"
-                  value="expense"
-                  class="h-4 w-4 text-red-600 focus:ring-red-500"
-                />
-                <label
-                  for="type-expense"
-                  class="ml-2 block text-sm text-gray-700"
-                  >Gasto</label
-                >
-              </div>
-            </div>
-            <button
-              type="submit"
-              class="w-full bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition duration-300"
-            >
-              Añadir Transacción
-            </button>
-          </form>
-        </div>
-      </section>
+  <!-- enlazando mi archivo JS con mi HTML -->
+  <script src="app.js"></script>
+</body>
 
-      <!-- Lista de transacciones -->
-      <section>
-        <div class="bg-white p-6 rounded-lg shadow-md">
-          <h2 class="text-xl font-semibold mb-4 text-gray-800">
-            Historial de transacciones
-          </h2>
-          <div class="overflow-x-auto">
-            <table class="min-w-full">
-              <thead>
-                <tr class="bg-gray-50 border-b">
-                  <th
-                    class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-                  >
-                    Descripción
-                  </th>
-                  <th
-                    class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-                  >
-                    Monto
-                  </th>
-                  <th
-                    class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-                  >
-                    Fecha
-                  </th>
-                  <th
-                    class="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider"
-                  >
-                    Acciones
-                  </th>
-                </tr>
-              </thead>
-              <tbody id="transaction-list" class="divide-y divide-gray-200">
-                <!-- Aquí se cargarán las transacciones dinámicamente -->
-                <!-- <tr class="text-sm text-gray-500">
-                  <td colspan="4" class="px-6 py-4 text-center">
-                    No hay transacciones registradas
-                  </td>
-                </tr> -->
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </section>
-
-      <!-- Pie de página -->
-      <footer class="mt-8 text-center text-gray-500 text-sm">
-        <p>Gestor de Presupuesto Personal © 2025</p>
-      </footer>
-    </div>
-    <!-- enlazando mi archivo JS con mi HTML -->
-    <script src="app.js"></script>
-  </body>
 </html>
